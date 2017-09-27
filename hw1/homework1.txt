@@ -1,1 +1,17 @@
-# HSE-Programming
+print("Input a:", end='')
+a=int(input())
+print("Input b:", end='')
+b=int(input())
+print("Input c:", end='')
+c=int(input())
+if b!=0:
+    if a%b==c:
+        print("a даёт остаток c при делении на b")
+    else:
+        print("a не даёт остаток c при делении на b")
+else:
+    print("Integer division by zero")
+if a*c+b==0:
+    print("c является решением линейного уравнения ax + b = 0")
+else:
+    print('c не является решением линейного уравнения ax + b = 0')
