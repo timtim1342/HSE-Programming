@@ -1,9 +1,9 @@
 print("Input a:", end='')
-a=int(input())
+a=float(input())
 print("Input b:", end='')
-b=int(input())
+b=float(input())
 print("Input c:", end='')
-c=int(input())
+c=float(input())
 if b!=0:
     if a%b==c:
         print("a даёт остаток c при делении на b")
