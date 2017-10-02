@@ -10,7 +10,7 @@ if b!=0:
     else:
         print("a не даёт остаток c при делении на b")
 else:
-    print("Integer division by zero")
+    print("Division by zero")
 if a*c+b==0 or a==0 and b==0:
     print("c является решением линейного уравнения ax + b = 0")
 else:
