@@ -1,6 +1,6 @@
 tre=0
 uno=0
-with open("/home/uluru/Рабочий стол/OL2.txt") as f:
+with open('OL2.txt', encoding='utf-8') as f:
     text=f.read()
     text=text.replace('.','').replace(',','').replace('?','').replace('..','').replace('...','').replace('\ufeff','')
     lis=list(text.split())
