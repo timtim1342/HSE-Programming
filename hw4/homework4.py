@@ -2,7 +2,7 @@ tre=0
 uno=0
 with open('OL2.txt', encoding='utf-8') as f:
     text=f.read()
-    text=text.replace('.','').replace(',','').replace('?','').replace('..','').replace('...','').replace('\ufeff','')
+    text=text.replace('.','').replace(',','').replace('?','').replace('..','').replace('...','').replace('\ufeff','').replace('!','').replace(':','').replace(';','').replace('"','').replace('(','').replace(')','')
     lis=list(text.split())
 for i in range(len(lis)):
     if len(lis[i])==3:
