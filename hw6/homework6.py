@@ -30,8 +30,8 @@ def adj(): # случайный выбор определения к субъе�
         ad = text.splitlines()
      return random.choice(ad)
 
-def negative(): #отрицательное предложение
-    verse = random.choice([0,1,2,3])
+def negative(): # случайное отрицательное предложение
+    verse = random.choice([0,1,2,3]) # выбор из разных конструкций 
     if verse == 1:
         return adj().capitalize() + ' ' + subj() + ' не ' + verb() + ' ' + obj()
     elif verse == 2:
@@ -42,7 +42,7 @@ def negative(): #отрицательное предложение
         return subj().capitalize() + ' ' + verb() + ' не ' + obj()
         
 
-def state(): #утвердительное
+def state(): # утвердительное
     verse = random.choice([0,1,2])
     if verse == 1:
         return adj().capitalize() + ' ' + subj() + ' ' + verb() + ' ' + obj()
@@ -51,23 +51,23 @@ def state(): #утвердительное
     else:
         return subj().capitalize() + ' ' + verb() + ' ' + obj()
 
-def imperative(): #повелительное
+def imperative(): # повелительное
     verse = random.choice([0,1])
     if verse == 1:
         return adj().capitalize() + ' ' + subj() + ', ' + imp() + ' ' + obj()
     else:
         return subj().capitalize() + ', ' + imp() + ' ' + obj()
-def conditional(): #условное
+def conditional(): # условное
     verse = random.choice([0,1])
     if verse == 1:
         return adj().capitalize() + ' ' + subj() + ' ' + verb() + ' бы ' + obj()
     else:
         return subj().capitalize() + ' ' + verb() + ' бы ' + obj()
-def question(): #вопросительное
+def question(): # вопросительное
     verse = random.choice([0,1,2,3])
     if verse == 1:
-        return state() + '?' #вопросительным может стать предложение любого типа,
-                             #кроме повелительного
+        return state() + '?' # вопросительным может стать предложение любого типа,
+                             # кроме повелительного
     elif verse == 2:
         return negative() + '?'
     elif verse == 3:
