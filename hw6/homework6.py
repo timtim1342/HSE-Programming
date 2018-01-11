@@ -1,73 +1,71 @@
 import random
 
-def verb(): # случайный выбор глагола
-    with open('verbs.txt', encoding='utf-8') as f:
-        text = f.read()
-        verbs = text.splitlines()
-    return random.choice(verbs)
+def wordrand(a): #выбирает случайное слово. в зависимости от значения a выбирает глагол, субъект действия, объект действия, повелительный глагол или определение к субъекту
+    if a == 1:
+        with open('verbs.txt', encoding='utf-8') as f:
+            text = f.read()
+            word = text.splitlines()
+        return random.choice(word)
+    elif a == 2:
+        with open('subj.txt', encoding='utf-8') as f:
+            text = f.read()
+            word = text.splitlines()
+        return random.choice(word)
+    elif a == 3:
+        with open('objSg.txt', encoding='utf-8') as f:
+            text = f.read()
+            word = text.splitlines()
+        return random.choice(word)
+    elif a ==4:
+        with open('imperative.txt',encoding='utf-8') as f:
+            text = f.read()
+            word = text.splitlines()
+        return random.choice(word)
 
-def subj(): # случайный выбор субъекта действия
-    with open('subj.txt', encoding='utf-8') as f:
-        text = f.read()
-        subj = text.splitlines()
-    return random.choice(subj)
-
-def obj(): # случайный выбор объекта действия
-    with open('objSg.txt', encoding='utf-8') as f:
-        text = f.read()
-        obj = text.splitlines()
-    return random.choice(obj)
-
-def imp(): # случайный выбор глагола в повелительном наклонении 
-    with open('imperative.txt',encoding='utf-8') as f:
-        text = f.read()
-        imper = text.splitlines()
-    return random.choice(imper)
-
-def adj(): # случайный выбор определения к субъекту
-     with open('AdjSg.txt',encoding='utf-8') as f:
-        text = f.read()
-        ad = text.splitlines()
-     return random.choice(ad)
-
-def negative(): # случайное отрицательное предложение
-    verse = random.choice([0,1,2,3]) # выбор из разных конструкций 
-    if verse == 1:
-        return adj().capitalize() + ' ' + subj() + ' не ' + verb() + ' ' + obj()
-    elif verse == 2:
-        return adj().capitalize() + ' ' + subj() + ' ' + verb() + ' не ' + obj()
-    elif verse == 3:
-        return subj().capitalize() + ' не ' + verb() + ' ' + obj()
     else:
-        return subj().capitalize() + ' ' + verb() + ' не ' + obj()
+        with open('AdjSg.txt',encoding='utf-8') as f:
+            text = f.read()
+            word = text.splitlines()
+        return random.choice(word)
+
+def negative(): #отрицательное предложение
+    verse = random.choice([0,1,2,3])
+    if verse == 1:
+        return wordrand(0).capitalize() + ' ' + wordrand(2) + ' не ' + wordrand(1) + ' ' + wordrand(3)
+    elif verse == 2:
+        return wordrand(0).capitalize() + ' ' + wordrand(2) + ' ' + wordrand(1) + ' не ' + wordrand(3)
+    elif verse == 3:
+        return wordrand(2).capitalize() + ' не ' + wordrand(1) + ' ' + wordrand(3)
+    else:
+        return wordrand(2).capitalize() + ' ' + wordrand(1) + ' не ' + wordrand(3)
         
 
-def state(): # утвердительное
+def state(): #утвердительное
     verse = random.choice([0,1,2])
     if verse == 1:
-        return adj().capitalize() + ' ' + subj() + ' ' + verb() + ' ' + obj()
+        return wordrand(0).capitalize() + ' ' + wordrand(2) + ' ' + wordrand(1) + ' ' + wordrand(3)
     if verse == 2:
         return 'Я есть Грут'
     else:
-        return subj().capitalize() + ' ' + verb() + ' ' + obj()
+        return wordrand(2).capitalize() + ' ' + wordrand(1) + ' ' + wordrand(3)
 
-def imperative(): # повелительное
+def imperative(): #повелительное
     verse = random.choice([0,1])
     if verse == 1:
-        return adj().capitalize() + ' ' + subj() + ', ' + imp() + ' ' + obj()
+        return wordrand(0).capitalize() + ' ' + wordrand(2) + ', ' + wordrand(4) + ' ' + wordrand(3)
     else:
-        return subj().capitalize() + ', ' + imp() + ' ' + obj()
-def conditional(): # условное
+        return wordrand(2).capitalize() + ', ' + wordrand(4) + ' ' + wordrand(3)
+def conditional(): #условное
     verse = random.choice([0,1])
     if verse == 1:
-        return adj().capitalize() + ' ' + subj() + ' ' + verb() + ' бы ' + obj()
+        return wordrand(0).capitalize() + ' ' + wordrand(2) + ' ' + wordrand(1) + ' бы ' + wordrand(3)
     else:
-        return subj().capitalize() + ' ' + verb() + ' бы ' + obj()
-def question(): # вопросительное
+        return wordrand(2).capitalize() + ' ' + wordrand(1) + ' бы ' + wordrand(3)
+def question(): #вопросительное
     verse = random.choice([0,1,2,3])
     if verse == 1:
-        return state() + '?' # вопросительным может стать предложение любого типа,
-                             # кроме повелительного
+        return state() + '?' #вопросительным может стать предложение любого типа,
+                             #кроме повелительного
     elif verse == 2:
         return negative() + '?'
     elif verse == 3:
@@ -98,4 +96,5 @@ def randomtxt():
         elif verse5 == 1 and e == 0:
             print(conditional() + '.', end=' ')
             e += 1
+
 randomtxt()
