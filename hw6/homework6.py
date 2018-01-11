@@ -56,7 +56,7 @@ def imperative(): #повелительное
     if verse == 1:
         return adj().capitalize() + ' ' + subj() + ', ' + imp() + ' ' + obj()
     else:
-        return subj().capitalize() + ' ' + imp() + ', ' + obj()
+        return subj().capitalize() + ', ' + imp() + ' ' + obj()
 def conditional(): #условное
     verse = random.choice([0,1])
     if verse == 1:
