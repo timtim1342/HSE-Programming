@@ -16,7 +16,7 @@ def wordrand(a): #выбирает случайное слово. в завис�
             text = f.read()
             word = text.splitlines()
         return random.choice(word)
-    elif a ==4:
+    elif a == 4:
         with open('imperative.txt',encoding='utf-8') as f:
             text = f.read()
             word = text.splitlines()
