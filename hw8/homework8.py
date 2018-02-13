@@ -19,7 +19,7 @@ def whatword(di):
     random.shuffle(keys)
     for count in range(0,5):
         whatword = keys[count]
-        counter = len(di[whatword])-len(whatword)-1
+        counter = len(di[whatword])-len(whatword)-1 #циклы внутри ф не оч. оптим.
         while counter != 0:
             print(di[whatword].replace(whatword, '...'))
             thisword = input()
