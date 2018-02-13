@@ -1,3 +1,4 @@
+import random
 def dict(filename_one, filename_two): # читает файл со словами, которые надо будет угадывать. создает словарь с ключами из этих слов и значением из выражений.
     d={}
     with open(filename_one, encoding='utf-8') as f:
@@ -13,20 +14,28 @@ def dict(filename_one, filename_two): # читает файл со словам�
     return d
 
 def whatword(di):
-    import random
+    score = 0
     keys = list(di.keys())
-    whatword = random.choice(keys)
-    counter = 0
-    ind = len(di[whatword])-len(whatword)-1
-    while counter != ind:
-        print(di[whatword].replace(whatword, '...'))
-        thisword = input()
-        if thisword != whatword:
-            print( 'НетНетНет, осталось попыток:', ind - counter)
-            counter += 1
-        else:
-            print('correct')
-            counter = ind
+    random.shuffle(keys)
+    for count in range(0,5):
+        whatword = keys[count]
+        counter = len(di[whatword])-len(whatword)-1
+        while counter != 0:
+            print(di[whatword].replace(whatword, '...'))
+            thisword = input()
+            if thisword == whatword:
+                print('You win')
+                score += 1
+                break
+            elif counter != 1:
+                counter -= 1
+                print('NoNoNo, try again.', counter)
+            else:
+                print('You lose')
+                break
+    print('Your score:', score)
+if __name__ == '__main__':
+    whatword(dict('words.csv', 'cont.csv'))
     
 
 
