@@ -5,7 +5,6 @@ def opn():
     return text
             
 def shashlik_mashlik():
-    txt = 'язык языкознание дом языку плов языках языки'# не меняет если языки идут подряд
     return re.sub(r'\bЯзык([иауео]?[хмв]?и?)\b', r'Шашлык\1', re.sub(r'\bязык([иауео]?[хмв]?и?)\b', r'шашлык\1', opn()))
 
 def make_shashlik():
