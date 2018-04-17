@@ -11,9 +11,10 @@ def find_good_ones():
 def our_achievements():
     ress = find_good_ones()
     print('Всего папок, сожержащих только кириллические символы, вот столько:', len(ress))
-    print('Такие вот папки:')
-    for i in range(len(ress)):
-        print(ress[i])
+    if len(ress) != 0:
+        print('Такие вот папки:')
+        for i in range(len(ress)):
+            print(ress[i])
 
 if __name__ == '__main__':
     our_achievements()
