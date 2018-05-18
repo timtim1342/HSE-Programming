@@ -33,7 +33,7 @@ def main():
     for folder in folders_here:
         change_dir(folder)
         main()
-        change_dir(os.path.dirname(os.getcwd())) #что делать с названием папки '.second'
+        change_dir(os.path.dirname(os.getcwd())) 
 
 def find_max(): #создает из словаря formats два списка(один со значениями, другой с ключами). ищет max по списку со значениями, смотрит его индекс, по этому индексу выводит ключ из второго списка.
     ind = list(formats.values()).index(max(formats.values())) 
