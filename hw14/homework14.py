@@ -5,7 +5,7 @@ def opn():
     txt = [sent.split() for sent in text]
     return txt
 def cre(lst):
-    res = [word + '_' + str(len(word)) for sent in lst for word in sent]
+    res = [word + '%s' % '_' + str(len(word)) for sent in lst for word in sent]
     return res
 def pr(lst):
     for word in lst:
